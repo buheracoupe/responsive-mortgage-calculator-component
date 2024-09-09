@@ -1,0 +1,174 @@
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --gray: #4d5054;
+    --lime: hsl(61, 70%, 52%);
+    --red: #red;
+--Slate-100: hsl(202, 86%, 94%);
+--Slate-300: hsl(203, 41%, 72%);
+--Slate-500: hsl(200, 26%, 54%);
+--Slate-700: hsl(200, 24%, 40%);
+--Slate-900: hsl(202, 55%, 16%);
+}
+
+input[type=number]{
+width: 100%;
+padding: .25rem .5rem;
+font-weight: 700;
+border: 0;
+outline: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.type-btn{
+    appearance: none;
+    background-color: transparent;
+    width: 0.5rem;
+    height: .5rem;
+    margin-right: .5rem;
+    outline: 1px solid var(--lime);
+    border-radius: 50%;
+    outline-offset: 3px;
+}
+.type-btn:checked{
+    background-color: var(--lime);
+    outline-color: var(--lime);
+}
+
+.radio-btns{
+    display: flex;
+    gap: 1rem;
+    padding: .5rem;
+    border: 1px solid var(--gray);
+    align-items: center;
+    margin-top: 7px;
+}
+.radio-btns:hover{
+    border: 1px solid var(--lime);
+}
+/* remember to add the selected class in the script */
+.radio-btns.selected{
+    background: var(--lime);
+    border: 1px solid var(--lime);
+}
+.radio-btns > *{
+    cursor: pointer;
+}
+.form-item{
+    margin-bottom: 2rem;
+}
+.input-text{
+background-color: var(--Slate-100);
+color: var(--Slate-700);
+padding: .5rem .75rem;
+font-weight: 700;
+}
+
+
+.input-container{
+    display: flex;
+    border: 1px solid var(--Slate-300);
+}
+.input-container:hover{
+    border: 1px solid var(--Slate-900)
+}   
+.input-container:focus-within{
+    background-color:var(--lime);
+    border: 1px solid var(--lime);
+}
+
+body{
+    background-color: white;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: url(./abstract-1850424_1920.jpg);
+    background-size: cover;
+}
+.form-alert{
+    color: red;
+    display: none;
+}
+
+#clear-btn{
+    background-color: transparent;
+    color: var(--gray);
+    padding: .25rem .5rem;
+    font-size: 1.15rem;
+    text-decoration: dotted underline;
+    border: 0;
+    cursor: pointer;
+
+}
+.mortgage-calculator{
+   background-color:white;
+   max-width: 1000px;
+   max-height: 100vh;
+   display: grid;
+   grid-template-columns: 1fr 1fr; 
+   border-radius:1.5rem;
+   overflow:hidden;
+   box-shadow: 0 0 10px 10px white;
+}
+.mortgage-calculator > *{
+    padding: 2rem;
+}
+.mortgage-calculator .left{
+    color: var(--gray);
+}
+.header{
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.header button:hover{
+color: #474747;
+}
+.calculate-btn{
+    border:0;
+    background-color: var(--lime);
+    color: var(--gray);
+    font-size:1.1rem;
+    border-radius: 1.5rem;
+    padding: .5rem 1rem;
+    display:flex;
+    align-items: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+.calculate-btn:hover{
+    background-color: #e0ef7a;
+}
+ion-icon{
+    padding: .3rem;
+}
+.mortgage-calculator .right{
+    background-color: var(--gray);
+    color: white;
+    border-radius: 0 0 0 4rem;
+}
+#default-text{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#default-text h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+#default-text p{
+    font-size: 1.2rem;
+}

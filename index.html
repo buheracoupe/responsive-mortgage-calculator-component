@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Mortgage Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="mortgage-calculator">
+        <div class="left">
+            <div class="header">
+                <h2>Mortgage Calculator</h2>
+                <button id="clear-btn">Clear All</button>
+            </div>
+            <form id="mortgage-form">
+                <div class="form-item">
+                    <label class="label-input" for="mortgage-amount">Mortgage Amount</label>
+                    <div class="input-container">
+                        <p id="amount-text" class="input-text">$</p>
+                        <input required type="number" id="mortgage-amount" required>
+                    </div>
+                    <p class="form-alert" id="amount-alert">This field is required!</p>
+                   
+                </div>
+                <div class="form-item">
+            <label class="label-input" for="interest-rate">Interest Rate</label>
+            <div class="input-container">
+                
+                <input  required type="number" id="interest-rate">
+                <p id="rate-text" class="input-text">%</p>
+                </div>
+                <p class="form-alert" id="interest-rate-alert">This field is required!</p>
+                </div>
+                <div class="form-item">
+                    <label class="label-input" for="term">Term</label>
+                    <div class="input-container">
+                        <input type="number" id="term">
+                        <p id="years-text" class="input-text">years</p>
+                    </div>
+                    <p class="form-alert" id="term-alert">This field is required!</p>
+                </div>
+                <div class="form-item">
+                    <p id="mortgage-type">Mortgage Type</p>
+                    <div class="radio-btns">
+                        <input required name="type-btn" type="radio" class="type-btn" id="repayment-btn">
+                        <label for="repayment-btn">Repayment</label>
+                    </div>
+                    <div class="radio-btns">
+                        <input name="type-btn" type="radio" class="type-btn" id="interest-only-btn">
+                            <label for="interest-only-btn">Interest Only</label>
+                        </div>
+                    <p class="form-alert">This field is required!</p>
+                </div>
+                <div class="form-item">
+                    <button class="calculate-btn" type="submit" id="calculate">
+                        <ion-icon name="calculator-outline"></ion-icon>
+                          Calculate Repayment</button>
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <div id="default-text">
+                <h2>Your Results</h2>
+                <img src="./illustration-empty.svg" alt="calculator-graphic-design">
+               <h2 class="results-shown-text">Results Shown Here</h2>
+               <p class="light-text">Complete the form and click 'calculate repayments' to see what your
+                monthly payments will be.</p>
+            </div>
+        </div>
+    </div>
+   <script src="./script.js"></script> 
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
