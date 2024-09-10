@@ -114,7 +114,6 @@ body{
 .mortgage-calculator{
    background-color:white;
    max-width: 1000px;
-   max-height: 100vh;
    display: grid;
    grid-template-columns: 1fr 1fr; 
    border-radius:1.5rem;
@@ -210,4 +209,32 @@ ion-icon{
 }
 #your-result{
     font-size: 2.2rem;
+}
+
+@media (max-width: 768px) {
+    .mortgage-calculator{
+        margin:2rem;
+        grid-template-columns: 1fr;
+    }
+    .default-text{
+        margin-top: 3rem;
+    }
+}  
+@media (max-width:540px) {
+    .mortgage-calculator{
+        margin: 0px;
+        grid-template-columns: 1fr;
+        border-radius: initial;
+    }
+    .header{
+        display: block;
+        margin-bottom: 2rem;
+    }
+    .right{
+        border-radius: initial;
+    }
+    #calculate{
+        width: 100%;
+        justify-content: center;
+    }
 }

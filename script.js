@@ -25,12 +25,19 @@ clearAll.addEventListener("click", () => {
 })
 
 function calculate(event) {
+
     event.preventDefault();
 const amount =parseFloat(mortgageAmount.value)
 const term = parseFloat(termInput.value);
 const rate = parseFloat(interestRate.value);
 const mortgageType = document.querySelector("input[name=type-btn]:checked")
 console.log(mortgageType.value)
+
+if(!mortgageType){
+    document.querySelector("#type-alert.form-alert").style.display = "block";
+    document.querySelector("#type-alert").style.backgroundColor = "red";
+    document.querySelector("#type-alert").style.color = "white";
+} //fix this 
 
 if(isNaN(amount) || amount <= 0) {
     document.querySelector("#amount-alert.form-alert").style.display = "block";
