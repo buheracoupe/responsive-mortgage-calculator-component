@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
 *,
 *::before,
 *::after{
@@ -53,6 +57,7 @@ input[type="number"]::-webkit-inner-spin-button {
     border: 1px solid var(--gray);
     align-items: center;
     margin-top: 7px;
+    cursor: pointer;
 }
 .radio-btns:hover{
     border: 1px solid var(--lime);
@@ -95,10 +100,14 @@ body{
     place-content: center;
     background: url(./abstract-1850424_1920.jpg);
     background-size: cover;
+    font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 .form-alert{
     color: red;
     display: none;
+    font-weight: 500;
 }
 
 #clear-btn{

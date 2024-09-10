@@ -7,6 +7,7 @@ const mortgageAmount = document.querySelector("#mortgage-amount")
 const termInput = document.querySelector("#term")
 const interestRate = document.querySelector("#interest-rate")
 const leftDiv = document.querySelector(".right")
+const formAlerts = document.querySelectorAll(".form-alert")
 
 radioBtnsContainer.forEach((buttonDiv) => {
     buttonDiv.addEventListener("click", (event) => {
@@ -22,7 +23,7 @@ clearAll.addEventListener("click", () => {
     numberInputs.forEach((numberInput) => {
         numberInput.value = "";
     })
-})
+})//add clearAll functionality to remove error messages 
 
 function calculate(event) {
 
@@ -30,14 +31,16 @@ function calculate(event) {
 const amount =parseFloat(mortgageAmount.value)
 const term = parseFloat(termInput.value);
 const rate = parseFloat(interestRate.value);
-const mortgageType = document.querySelector("input[name=type-btn]:checked")
-console.log(mortgageType.value)
+const mortgageType = document.querySelector("input[name=type-btn]:checked");
 
-if(!mortgageType){
-    document.querySelector("#type-alert.form-alert").style.display = "block";
-    document.querySelector("#type-alert").style.backgroundColor = "red";
-    document.querySelector("#type-alert").style.color = "white";
-} //fix this 
+if (!mortgageType) {
+  document.querySelector("#type-alert").style.display = "block";
+  document.querySelector("#type-alert").style.color = "red";
+}else{
+    document.querySelector("#type-alert").style.display = "none";
+}
+
+console.log(mortgageType ? mortgageType.value : "No mortgage type selected"); 
 
 if(isNaN(amount) || amount <= 0) {
     document.querySelector("#amount-alert.form-alert").style.display = "block";
