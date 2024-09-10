@@ -23,6 +23,17 @@ clearAll.addEventListener("click", () => {
     numberInputs.forEach((numberInput) => {
         numberInput.value = "";
     })
+    document.querySelector("#type-alert").style.display = "none";
+    document.querySelector("#amount-alert").style.display = "none";
+    document.querySelector("#term-alert").style.display = "none";
+    document.querySelector("#interest-rate-alert").style.display = "none";
+
+    document.querySelector("#amount-text").style.backgroundColor = "var(--Slate-100)";
+    document.querySelector("#amount-text").style.color = "var(--Slate-700)";
+    document.querySelector("#years-text").style.backgroundColor = "var(--Slate-100)";
+    document.querySelector("#years-text").style.color = "var(--Slate-700)";
+    document.querySelector("#rate-text").style.backgroundColor = "var(--Slate-100)";
+    document.querySelector("#rate-text").style.color = "var(--Slate-700)";
 })//add clearAll functionality to remove error messages 
 
 function calculate(event) {
