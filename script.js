@@ -30,7 +30,7 @@ const amount =parseFloat(mortgageAmount.value)
 const term = parseFloat(termInput.value);
 const rate = parseFloat(interestRate.value);
 const mortgageType = document.querySelector("input[name=type-btn]:checked")
-console.log(mortgageType)
+console.log(mortgageType.value)
 
 if(isNaN(amount) || amount <= 0) {
     document.querySelector("#amount-alert.form-alert").style.display = "block";
@@ -64,10 +64,20 @@ if(isNaN(rate) || rate <= 0 || rate >= 100) {
 const monthlyRate = rate / 12 / 100;
   const totalMonths = term * 12;
 
-  const monthlyPayment = amount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
-  const totalPayments = monthlyPayment * totalMonths;
-  displayResults(monthlyPayment, totalPayments);
-console.log(monthlyPayment)
+  const monthlyPayment = (amount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1)).toFixed(2);;
+  const totalPayments = (monthlyPayment * totalMonths).toFixed(2);
+  const principalPayment = amount / totalMonths;
+const interestOnlyPayment = (monthlyPayment - principalPayment).toFixed(2);
+const totalInterestPayment = (totalPayments - amount).toFixed(2);
+
+  if(amount && rate && term && mortgageType.value === "repayment"){
+    displayResults(monthlyPayment, totalPayments)
+  };
+// console.log(monthlyPayment)
+
+if(amount && rate && term && mortgageType.value === "interest"){
+    displayInterest(interestOnlyPayment, totalInterestPayment);
+}
 }
 
 function displayResults(monthlyPayment, totalPayments){
@@ -82,7 +92,25 @@ function displayResults(monthlyPayment, totalPayments){
         <p>Your Monthly Repayments</p>
         <span id="monthly-amount">$${monthlyPayment}</span>
         <p>Total you'll repay over the term</p>
-        <span id="total-repayment">$${totalPayment}</span>
+        <span id="total-repayment">$${totalPayments}</span>
+
+    </div>
+    `
+}
+
+function displayInterest(interestOnly, totalPayments){
+    leftDiv.innerHTML =`
+<div class="yourresults">
+    <h2 style="flex:1" id="your-result">Your Results</h2>
+    <p style="flex:1" id="results-explanation">Your results shown below are based off of the information you provided.
+        To adjust the results, edit the form and click 'Calculate Repayments' again.
+    </p>
+    </div>
+    <div style="flex:1" class="calc-results-container">
+        <p>Your Monthly Interest Payments</p>
+        <span id="monthly-amount">$${interestOnly}</span>
+        <p>Total <strong>interest</strong> you'll repay over the term</p>
+        <span id="total-repayment">$${totalPayments}</span>
 
     </div>
     `
