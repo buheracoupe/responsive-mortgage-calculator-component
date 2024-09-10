@@ -6,6 +6,7 @@ const calculateBtn = document.querySelector("#calculate")
 const mortgageAmount = document.querySelector("#mortgage-amount")
 const termInput = document.querySelector("#term")
 const interestRate = document.querySelector("#interest-rate")
+const leftDiv = document.querySelector(".right")
 
 radioBtnsContainer.forEach((buttonDiv) => {
     buttonDiv.addEventListener("click", (event) => {
@@ -28,7 +29,8 @@ function calculate(event) {
 const amount =parseFloat(mortgageAmount.value)
 const term = parseFloat(termInput.value);
 const rate = parseFloat(interestRate.value);
-
+const mortgageType = document.querySelector("input[name=type-btn]:checked")
+console.log(mortgageType)
 
 if(isNaN(amount) || amount <= 0) {
     document.querySelector("#amount-alert.form-alert").style.display = "block";
@@ -68,6 +70,23 @@ const monthlyRate = rate / 12 / 100;
 console.log(monthlyPayment)
 }
 
+function displayResults(monthlyPayment, totalPayments){
+    leftDiv.innerHTML =`
+    <div class="yourresults">
+    <h2 style="flex:1" id="your-result">Your Results</h2>
+    <p style="flex:1" id="results-explanation">Your results shown below are based off of the information you provided.
+        To adjust the results, edit the form and click 'Calculate Repayments' again.
+    </p>
+    </div>
+    <div style="flex:1" class="calc-results-container">
+        <p>Your Monthly Repayments</p>
+        <span id="monthly-amount">$${monthlyPayment}</span>
+        <p>Total you'll repay over the term</p>
+        <span id="total-repayment">$${totalPayment}</span>
+
+    </div>
+    `
+}
 
 
 //eventlisteners
